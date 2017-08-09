@@ -28,3 +28,4 @@ If you want to test the bot, you can add it to your discord!<br>
 
   - [JDA](https://github.com/DV8FromTheWorld/JDA)
   - [commons-lang3](https://mvnrepository.com/artifact/org.apache.commons/commons-lang3)
+
