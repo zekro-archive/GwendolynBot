@@ -27,6 +27,15 @@ import java.io.IOException;
 
 public class Statics {
 
+    /*
+        TODO:
+        Bei Versionsänderung dies bitte auch im selben Zug es in die
+        Readme Datei an folgender Stelle eintragen:
+        03 | ![](https://img.shields.io/badge/latest-0.1.0--beta-orange.svg)
+                                                     ^
+                                                   hier ;)
+        - zekro
+    */
     public static final String VERSION = "0.1.0-beta";
     public static final String PREFIX = ".";
     public static final OnlineStatus STATUS = OnlineStatus.ONLINE;
