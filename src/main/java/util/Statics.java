@@ -37,7 +37,7 @@ public class Statics {
         - zekro
     */
     public static final String VERSION = "0.1.0-beta";
-    public static final String PREFIX = ".";
+    public static final String PREFIX = "g!";
     public static final OnlineStatus STATUS = OnlineStatus.ONLINE;
 
 
