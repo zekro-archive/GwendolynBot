@@ -24,7 +24,8 @@ If you want to test the bot, you can add it to your discord!<br>
   - [ThatCoderIsAlpha](https://github.com/ThatCoderIsAlpha) `PROJECT CHIEF`
   - [zekro](https://github.com/zekrotja) `ADMIN` `CODE STAFF`
   - [itsNaix](https://github.com/itsNaix) `SUPPORTER` `CODE STAFF`
-  - [Skillkiller](hhttps://github.com/Skillkiller) `SUPPORTER` `CODE STAFF`
+  - [Skillkiller](https://github.com/Skillkiller) `SUPPORTER` `CODE STAFF`
+  - [Scryptex](https://github.com/Scryptex) `SUPPORTER` `CODE STAFF`
 ## Libraries
 
   - [JDA](https://github.com/DV8FromTheWorld/JDA)
