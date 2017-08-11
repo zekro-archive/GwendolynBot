@@ -1,6 +1,6 @@
 # GwendolynBot
 
-![](https://img.shields.io/badge/latest-0.1.0--beta-orange.svg)
+![](https://img.shields.io/badge/latest-0.1.1--beta-orange.svg)
 
 This is a currently in early beta phase discord bot project from the **[DARK DEVS](https://github.com/Dark-Devs)** Community.
 
@@ -23,7 +23,8 @@ If you want to test the bot, you can add it to your discord!<br>
 
   - [ThatCoderIsAlpha](https://github.com/ThatCoderIsAlpha) `PROJECT CHIEF`
   - [zekro](https://github.com/zekrotja) `ADMIN` `CODE STAFF`
-  
+  - [itsNaix](https://github.com/itsNaix) `SUPPORTER` `CODE STAFF`
+  - [Skillkiller](hhttps://github.com/Skillkiller) `SUPPORTER` `CODE STAFF`
 ## Libraries
 
   - [JDA](https://github.com/DV8FromTheWorld/JDA)
