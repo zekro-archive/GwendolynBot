@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * GwendolynBot
@@ -69,5 +71,13 @@ public class Statics {
         }
         return out;
     }
+
+    public static String getTimeStamp() {
+
+        String timestamp = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        return timestamp;
+
+    }
+
 
 }
