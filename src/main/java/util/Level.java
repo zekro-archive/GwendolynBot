@@ -14,7 +14,7 @@ public class Level {
         /*
         Erklärung:
         Prinzip des Zinseszins. Es wird immer ein bestimmter % Anteil auf die XP vom vorherigen Level gerechnet
-        und das wird Hoch der Level genommen
+        und das wird Hoch der Level genommen.
 
          */
 
