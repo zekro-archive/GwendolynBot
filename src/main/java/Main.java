@@ -6,6 +6,7 @@ import listener.ReadyListener;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
+import util.Level;
 import util.Statics;
 
 import javax.security.auth.login.LoginException;
@@ -35,7 +36,6 @@ public class Main {
 
         registerListeners();
         registerCommands();
-
 
         try {
             builder.buildBlocking();

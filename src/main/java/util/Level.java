@@ -22,5 +22,20 @@ public class Level {
         return (int) Math.round(Statics.MIN_XP_LEVEL_1 * Math.pow( (double) 1 + Statics.ANSTIEG, level - 1));
     }
 
+    public static int getCurrentLevelByXp(int xp) {
+       boolean finding = true;
+       int currentLevel = 1;
+
+       while (finding) {
+           if(getXPbyLevel(currentLevel) > xp) {
+               finding = false;
+               currentLevel--;
+           } else {
+               currentLevel++;
+           }
+       }
+       return currentLevel;
+    }
+
 
 }
