@@ -1,4 +1,5 @@
 import commands.Ping;
+import commands.Xp;
 import core.CommandParser;
 import listener.GuildMessageListener;
 import listener.MessageListener;
@@ -55,6 +56,7 @@ public class Main {
     private static void registerCommands() {
         // Für den command einfach mal ein alias registriert um zu zeigen, wie man den overload benutz ^^
         CommandParser.register("ping", new String[] {"connection"}, new Ping());
+        CommandParser.register("xp", new String[] {"level", "lvl"}, new Xp());
     }
 
 }
