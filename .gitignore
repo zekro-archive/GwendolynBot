@@ -54,3 +54,4 @@ settings/gwendolyn.cfg
 src/main/resources/META-INF/MANIFEST.MF
 target/classes/META-INF/MANIFEST.MF
 /target/
+GwendolynBot.iml

@@ -8,9 +8,23 @@ import static util.Statics.DEBUG;
 
 public class Settings {
 
+    /*
+    private static final File dir = new File(System.getProperty("user.dir") + "/settings/");
+    private static final File file = new File(dir.getAbsolutePath(), "gwendolyn.cfg");
+
+        TODO:
+        Ich bin dafür, dass alle Dateien, die der Bot anlegt oder benutz im root path vom bot liegen,
+        damit man noch optional in die files eingreifen kann und die nicht suchen muss.
+        Können ja nochmal aufm discord drüber diskutieren ^^
+
+        - zekro
+
+    */
+
+    private static final File dir = new File("settings/");
+    private static final File file = new File(dir.getAbsolutePath(), "gwendolyn.cfg");
+
     public static void checkSettingsFile() {
-        File dir = new File(System.getProperty("user.dir") + "/settings/");
-        File file = new File(dir.getAbsolutePath(), "gwendolyn.cfg");
 
         if (!dir.exists()) dir.mkdirs();
         if (!file.exists()) {
@@ -23,7 +37,7 @@ public class Settings {
                 OutputStream outputStream = null;
 
                 try {
-                    outputStream = new FileOutputStream(System.getProperty("user.dir") + "/settings/gwendolyn.cfg");
+                    outputStream = new FileOutputStream(file);
                     properties.setProperty("prefix", "g!");
                     properties.setProperty("version", "0.0");
                     properties.setProperty("debug", "false");
@@ -58,7 +72,7 @@ public class Settings {
         InputStream inputStream = null;
 
         try {
-            inputStream = new FileInputStream(System.getProperty("user.dir") + "/settings/gwendolyn.cfg");
+            inputStream = new FileInputStream(file);
             properties.load(inputStream);
         } catch (IOException ex) {
             ex.getLocalizedMessage();
