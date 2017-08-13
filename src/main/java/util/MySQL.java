@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
+import static util.Statics.Debug;
 import static util.Statics.getTimeStamp;
 
 /**
@@ -34,6 +35,8 @@ public class MySQL {
         if (!dir.exists()) dir.mkdirs();
         if (!file.exists()) {
 
+            if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Trying to create mysql.cfg");
+
             try {
                 file.createNewFile();
                 Properties properties = new Properties();
@@ -47,6 +50,7 @@ public class MySQL {
                     properties.setProperty("host", "127.0.0.1");
                     properties.setProperty("port", "3306");
                     properties.store(outputStream, null);
+                    if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Created mysql.cfg successfully");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } finally {
@@ -99,6 +103,8 @@ public class MySQL {
         MySQL.database = getMySQLConf("database");
         MySQL.host = getMySQLConf("host");
         MySQL.port = getMySQLConf("port");
+        if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Loading mysql.cfg...");
+
     }
 
     public static void connect() {
@@ -128,6 +134,7 @@ public class MySQL {
         try {
             PreparedStatement ps = con.prepareStatement(qry);
             ps.executeUpdate();
+            if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Executing MySQL-Query...");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -136,6 +143,7 @@ public class MySQL {
     public static ResultSet getResult(String qry) {
         try {
             PreparedStatement ps = con.prepareStatement(qry);
+            if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Getting ResultSet...");
             return ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -145,6 +153,7 @@ public class MySQL {
 
     public static void checkTables() {
         if (isConnected()) {
+            if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Checking Tables...");
             MySQL.execute("CREATE TABLE IF NOT EXISTS users_xp (id int NOT NULL AUTO_INCREMENT, user_id VARCHAR(100), xp int(100), PRIMARY KEY (id))");
         }
     }

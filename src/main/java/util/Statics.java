@@ -40,6 +40,7 @@ public class Statics {
     public static final String VERSION = "0.1.0-beta";
     public static final String PREFIX = "g!";
     public static final OnlineStatus STATUS = OnlineStatus.ONLINE;
+    public static final boolean Debug = true;
 
     //Level Settings
     public static final int MIN_XP_LEVEL_1 = 100;

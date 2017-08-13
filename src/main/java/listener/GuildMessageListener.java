@@ -6,6 +6,9 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import util.Statics;
 import util.xp.XPHandler;
 
+import static util.Statics.Debug;
+import static util.Statics.getTimeStamp;
+
 /**
  * GwendolynBot
  *
@@ -29,8 +32,9 @@ public class GuildMessageListener extends ListenerAdapter{
         // Get XP
 
         User user = event.getAuthor();
+        if (Debug) System.out.println("[" + getTimeStamp() + "] [Debug] Message received (Length: " + length + " | XP: " + calculateXP(length) + ")");
         XPHandler.addXP(user, calculateXP(length));
-        
+
     }
 
     private int calculateXP(int length) {

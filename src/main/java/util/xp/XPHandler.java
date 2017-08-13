@@ -38,9 +38,6 @@ public class XPHandler {
 
         return 0;
     }
-    public static void setXP (User user) {
-
-    }
     public static void addXP (User user, int value) {
         if (userExists(user)) {
             try {
@@ -82,7 +79,7 @@ public class XPHandler {
             }
         }
     }
-    public static void  setMoney(User user, int value) {
+    public static void  setXP(User user, int value) {
         if (userExists(user)) {
             try {
                 ResultSet resultSet = MySQL.getResult("SELECT xp FROM users_xp WHERE user_id='" + user.getId() + "'");
