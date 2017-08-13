@@ -24,5 +24,20 @@ public class Level {
         return (int) Math.round(Integer.parseInt(getSettings("xp_level_default")) * Math.pow( (double) 1 + Double.parseDouble("xp_level_rise") , level - 1));
     }
 
+    public static int getCurrentLevelByXp(int xp) {
+       boolean finding = true;
+       int currentLevel = 1;
+
+       while (finding) {
+           if(getXPbyLevel(currentLevel) > xp) {
+               finding = false;
+               currentLevel--;
+           } else {
+               currentLevel++;
+           }
+       }
+       return currentLevel;
+    }
+
 
 }
