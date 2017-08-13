@@ -1,5 +1,4 @@
 import commands.Ping;
-import commands.Xp;
 import core.CommandParser;
 import listener.GuildMessageListener;
 import listener.MessageListener;
@@ -7,10 +6,12 @@ import listener.ReadyListener;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
-import util.Level;
+import util.Settings;
 import util.Statics;
 
 import javax.security.auth.login.LoginException;
+
+import static util.Settings.getSettings;
 
 /**
  * GwendolynBot
@@ -18,6 +19,7 @@ import javax.security.auth.login.LoginException;
  * Contributors for this class:
  *  - github.com/zekrotja
  *  - github.com/skillkiller
+ *  - github.com/itsNaix
  *
  * © DARK DEVS 2017
  */
@@ -28,13 +30,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Settings.checkSettingsFile();
+
         builder = new JDABuilder(AccountType.BOT)
-                .setToken(Statics.getToken())
+                .setToken(getSettings("token"))
                 .setAutoReconnect(true)
                 .setGame(Statics.getGame())
                 .setStatus(Statics.STATUS);
 
 
+        initSettings();
         registerListeners();
         registerCommands();
 
@@ -57,6 +62,12 @@ public class Main {
         // Für den command einfach mal ein alias registriert um zu zeigen, wie man den overload benutz ^^
         CommandParser.register("ping", new String[] {"connection"}, new Ping());
         CommandParser.register("xp", new String[] {"level", "lvl"}, new Xp());
+    }
+
+    private static void initSettings() {
+        if (getSettings("debug").equalsIgnoreCase("true")) {
+            Statics.DEBUG = true;
+        } else Statics.DEBUG = false;
     }
 
 }
