@@ -33,7 +33,7 @@ public class MySQL {
         if (!dir.exists()) dir.mkdirs();
         if (!file.exists()) {
 
-            if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Trying to create mysql.cfg");
+            if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Trying to create mysql.cfg");
 
             try {
                 file.createNewFile();
@@ -48,7 +48,7 @@ public class MySQL {
                     properties.setProperty("host", "127.0.0.1");
                     properties.setProperty("port", "3306");
                     properties.store(outputStream, null);
-                    if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Created mysql.cfg successfully");
+                    if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Created mysql.cfg successfully");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } finally {
@@ -101,7 +101,7 @@ public class MySQL {
         MySQL.database = getMySQLConf("database");
         MySQL.host = getMySQLConf("host");
         MySQL.port = getMySQLConf("port");
-        if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Loading mysql.cfg...");
+        if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Loading mysql.cfg...");
 
     }
 
@@ -110,7 +110,7 @@ public class MySQL {
         if(!isConnected()) {
             try {
                 con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false", username, password);
-                System.out.println("[" + getTimeStamp() + "] [Info] [SQL] MySQL-Connection succeeded!");
+                ConsoleUtils.sendSuccess("[" + getTimeStamp() + "] [Info] [SQL] MySQL-Connection succeeded!");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -132,7 +132,7 @@ public class MySQL {
         try {
             PreparedStatement ps = con.prepareStatement(qry);
             ps.executeUpdate();
-            if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Executing MySQL-Query...");
+            if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Executing MySQL-Query...");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -141,7 +141,7 @@ public class MySQL {
     public static ResultSet getResult(String qry) {
         try {
             PreparedStatement ps = con.prepareStatement(qry);
-            if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Getting ResultSet...");
+            if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Getting ResultSet...");
             return ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -151,7 +151,7 @@ public class MySQL {
 
     public static void checkTables() {
         if (isConnected()) {
-            if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Checking Tables...");
+            if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Checking Tables...");
             MySQL.execute("CREATE TABLE IF NOT EXISTS users_xp (id int NOT NULL AUTO_INCREMENT, user_id VARCHAR(100), xp int(100), PRIMARY KEY (id))");
         }
     }

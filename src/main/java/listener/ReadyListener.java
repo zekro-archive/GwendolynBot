@@ -2,7 +2,10 @@ package listener;
 
 import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import util.ConsoleUtils;
 import util.MySQL;
+
+import java.io.Console;
 import java.util.stream.Collectors;
 
 import static util.Settings.getSettings;
@@ -25,7 +28,7 @@ public class ReadyListener extends ListenerAdapter {
         System.out.println("\n-----------------------------------------\n" +
                            "GwendolynBot v. " + getSettings("version") + "\n" +
                            "Running on Guilds: \n" +
-                           String.join("\n", event.getJDA().getGuilds().stream().map(g -> String.format("    - %s (%s)", g.getName(), g.getId())).collect(Collectors.toList())) +
+                           String.join("\n", event.getJDA().getGuilds().stream().map(g -> String.format("    - %s (%s)", ConsoleUtils.Bold +  g.getName() + ConsoleUtils.Reset, g.getId())).collect(Collectors.toList())) +
                            "\n-----------------------------------------\n\n"
         );
 
@@ -36,7 +39,7 @@ public class ReadyListener extends ListenerAdapter {
         if (MySQL.isConnected()) {
             MySQL.checkTables();
         } else {
-            System.out.println("[" + getTimeStamp() + "] [Error] [SQL] MySQL-Connection failed!");
+            ConsoleUtils.sendError("[" + getTimeStamp() + "] [Error] [SQL] MySQL-Connection failed!");
         }
 
     }

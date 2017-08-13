@@ -6,10 +6,13 @@ import listener.ReadyListener;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
+import util.ConsoleUtils;
 import util.Settings;
 import util.Statics;
 
 import javax.security.auth.login.LoginException;
+
+import java.util.concurrent.TimeUnit;
 
 import static util.Settings.getSettings;
 
@@ -31,6 +34,16 @@ public class Main {
     public static void main(String[] args) {
 
         Settings.checkSettingsFile();
+
+        try {
+            if (getSettings("token").equalsIgnoreCase("your_token")) {
+                ConsoleUtils.sendError("\n\n  Please enter your Token first!\n    (/settings/gwendolyn.cfg)\nGwendolynBot will exit in 5 seconds\n\n");
+                TimeUnit.SECONDS.sleep(5);
+                System.exit(0);
+            }
+        } catch (Exception ex) {
+            ex.getLocalizedMessage();
+        }
 
         builder = new JDABuilder(AccountType.BOT)
                 .setToken(getSettings("token"))

@@ -3,6 +3,7 @@ package listener;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import util.ConsoleUtils;
 import util.xp.XPHandler;
 
 import static util.Statics.DEBUG;
@@ -33,7 +34,7 @@ public class GuildMessageListener extends ListenerAdapter{
         // Get XP
 
         User user = event.getAuthor();
-        if (DEBUG) System.out.println("[" + getTimeStamp() + "] [Debug] Message received (Length: " + length + " | XP: " + calculateXP(length) + ")");
+        if (DEBUG) ConsoleUtils.sendDebug("[" + getTimeStamp() + "] [Debug] Message received (Length: " + length + " | XP: " + calculateXP(length) + ")");
         XPHandler.addXP(user, calculateXP(length));
 
     }
