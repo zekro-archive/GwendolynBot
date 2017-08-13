@@ -6,7 +6,6 @@ import net.dv8tion.jda.core.entities.Game;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 
 /**
  * GwendolynBot
@@ -39,6 +38,10 @@ public class Statics {
     public static final String VERSION = "0.1.0-beta";
     public static final String PREFIX = "g!";
     public static final OnlineStatus STATUS = OnlineStatus.ONLINE;
+
+    //Level Settings
+    public static final int MIN_XP_LEVEL_1 = 100;
+    public static final double ANSTIEG = 0.10; //Anstieg in %
 
 
     public static Game getGame() {

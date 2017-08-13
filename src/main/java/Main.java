@@ -14,6 +14,7 @@ import javax.security.auth.login.LoginException;
  *
  * Contributors for this class:
  *  - github.com/zekrotja
+ *  - github.com/skillkiller
  *
  * © DARK DEVS 2017
  */
