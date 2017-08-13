@@ -4,7 +4,8 @@ import core.CommandParser;
 import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-import util.Statics;
+
+import static util.Settings.getSettings;
 
 /**
  * GwendolynBot
@@ -24,7 +25,7 @@ public class MessageListener extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
 
         // Parse & Handle Command
-        if (event.getMessage().getContent().startsWith(Statics.PREFIX) &&
+        if (event.getMessage().getContent().startsWith(getSettings("prefix")) &&
                 !event.getAuthor().equals(event.getJDA().getSelfUser()) &&
                 !event.getTextChannel().getType().equals(ChannelType.PRIVATE)) {
             CommandParser.handleCommand(CommandParser.parse(event));

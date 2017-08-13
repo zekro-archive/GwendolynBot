@@ -7,6 +7,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * GwendolynBot
+ *
+ * Contributors for this class:
+ * - github.com/itsNaix
+ * - github.com/skillkiller
+ *
+ * © DARK DEVS 2017
+ */
+
 public class XPHandler {
 
     public static boolean userExists(User user) {

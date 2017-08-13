@@ -1,5 +1,7 @@
 package util;
 
+import static util.Settings.getSettings;
+
 /**
  * GwendolynBot
  *
@@ -19,7 +21,7 @@ public class Level {
          */
 
 
-        return (int) Math.round(Statics.MIN_XP_LEVEL_1 * Math.pow( (double) 1 + Statics.ANSTIEG, level - 1));
+        return (int) Math.round(Integer.parseInt(getSettings("xp_level_default")) * Math.pow( (double) 1 + Double.parseDouble("xp_level_rise") , level - 1));
     }
 
 

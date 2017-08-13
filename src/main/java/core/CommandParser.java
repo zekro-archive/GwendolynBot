@@ -8,6 +8,8 @@ import util.Statics;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import static util.Settings.getSettings;
+
 /**
  * GwendolynBot
  *
@@ -39,7 +41,7 @@ public class CommandParser {
     public static CommandContainer parse(MessageReceivedEvent event) {
 
         String content = event.getMessage().getContent();
-        String invoke = content.split(" ")[0].substring(Statics.PREFIX.length());
+        String invoke = content.split(" ")[0].substring(getSettings("prefix").length());
 
         String[] args = new String[content.split(" ").length - 1];
         args = Arrays.asList(content.split(" ")).subList(1, content.split(" ").length).toArray(args);
@@ -52,7 +54,7 @@ public class CommandParser {
         if (commands.containsKey(cmd.invoke)) {
             commands.get(cmd.invoke).action(cmd.args, cmd.event);
         } else {
-            Messages.error(cmd.event.getTextChannel(), String.format("This bot has no command `%s%s`.", Statics.PREFIX, cmd.invoke));
+            Messages.error(cmd.event.getTextChannel(), String.format("This bot has no command `%s%s`.", getSettings("prefix"), cmd.invoke));
         }
     }
 
