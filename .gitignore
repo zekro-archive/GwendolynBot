@@ -52,3 +52,4 @@ settings/mysql.cfg
 .idea/artifacts/GwendolynBot_jar.xml
 src/main/resources/META-INF/MANIFEST.MF
 target/classes/META-INF/MANIFEST.MF
+/target/
