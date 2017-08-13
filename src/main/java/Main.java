@@ -1,4 +1,5 @@
 import commands.Ping;
+import commands.Xp;
 import core.CommandParser;
 import listener.GuildMessageListener;
 import listener.MessageListener;
