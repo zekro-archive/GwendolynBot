@@ -1,5 +1,6 @@
 import commands.Ping;
 import core.CommandParser;
+import listener.GuildMessageListener;
 import listener.MessageListener;
 import listener.ReadyListener;
 import net.dv8tion.jda.core.AccountType;
@@ -47,7 +48,8 @@ public class Main {
     private static void registerListeners() {
         builder
                 .addEventListener(new ReadyListener())
-                .addEventListener(new MessageListener());
+                .addEventListener(new MessageListener())
+                .addEventListener(new GuildMessageListener());
     }
 
     private static void registerCommands() {

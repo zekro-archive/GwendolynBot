@@ -6,6 +6,8 @@ import net.dv8tion.jda.core.entities.Game;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * GwendolynBot

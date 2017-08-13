@@ -55,6 +55,15 @@ public class XPHandler {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+        } else {
+            try {
+                PreparedStatement preparedStatement = MySQL.getConnection().prepareStatement("INSERT INTO users_xp(id, user_id, xp) VALUES (NULL, ?, ?)");
+                preparedStatement.setString(1, user.getId());
+                preparedStatement.setInt(2, value);
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
     public static void remXP (User user, int value) {
