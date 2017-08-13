@@ -73,4 +73,12 @@ public class Statics {
         return out;
     }
 
+    public static String getTimeStamp() {
+
+        String timestamp = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        return timestamp;
+
+    }
+
+
 }
